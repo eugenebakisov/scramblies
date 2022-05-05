@@ -1,0 +1,11 @@
+{:nrepl    {:port 7002}
+ :deps     {:aliases [:shadow-cljs]}
+ :dev-http {8020 ["resources/html" "resources/public" "target/classes/cljsbuild/public/"]}
+ :builds   {:app       {:target     :browser
+                        :output-dir "target/classes/cljsbuild/public/js"
+                        :asset-path "/js"
+                        :modules    {:app {:entries [eugene.bakisov.scramblies.core]
+                                           :init-fn eugene.bakisov.scramblies.core/init!}}
+                        :devtools   {:after-load eugene.bakisov.scramblies.core/mount-root}}
+            :test      {:target    :karma
+                        :output-to "target/test.js"}}}

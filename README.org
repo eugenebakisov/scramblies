@@ -1,0 +1,63 @@
+* Scramblies
+** Intro
+Clojure web server bundled with ClojureScript web applicaiton.
+Web server contains a single API endpoint which takes two strings and returns if one string can be arranged out of letters of the second one.
+Web application contains a single form for inputing mentioned strings.
+At the moment of writing it's been deployed to [[https://scramblies.repl-driven.dev][scramblies.repl-driven.dev]]
+** Stack
+- Clojure 1.11.1
+- Managing deps via [[https://github.com/clojure/tools.deps.alpha][tools.deps]]
+- ClojureSript toolchain: [[https://github.com/thheller/shadow-cljs][shadow-cljs]]
+- [[https://undertow.io/][Undertow]] web server
+- [[https://github.com/weavejester/integrant][Integrant]]+[[https://github.com/juxt/aero][Aero]] for system configuration/management
+- [[https://github.com/metosin/reitit][Reitit]] for routes and spec
+- [[https://github.com/reagent-project/reagent][Reagent]] for creating React components (would like to try [[https://github.com/lilactown/helix][Helix]] or [[https://github.com/pitch-io/uix][UIX]])
+- [[https://github.com/day8/re-frame][Re-frame]] for managing state and controlling effects in web app
+- [[https://github.com/tailwindlabs/tailwindcss][Tailwindcss]] for efficient styling (tried to make [[https://github.com/HealthSamurai/macrocss][macrocss]] work but there is an issue with @media queries)
+
+** Local Development
+*** Docker
+In order to quickly lauch project locally one may use docker
+#+begin_src
+docker run -p 3000:3000 eugenebakisov/scramblies
+#+end_src
+*** Building local version
+Local development requires Node.js/npm and JDK/Clojure CLI to be installed.
+
+In order to build local version you should install js deps and starting tailwindcss and shadow-cljs in watch mode
+#+begin_src
+npm install
+npm run dev
+#+end_src
+Then start Clojure web server
+#+begin_src
+make repl
+#+end_src
+If everything went successful you should be able to open [[http://localhost:3000][localhost:3000]] and see web application with some css. You can also check out [[http://localhost:300/api][localhost:3000/api]] for Swagger UI.
+Shadow-cljs configured to start web server in watch mode on [[http://localhost:8020][localhost:8020]] - which can be useful for working with styles in cljs views as they will be compiled on the fly by tailwindcss and delived by shadow-cljs dev server automaticaly instead of requiring you to manually reload index.html served by clojure web server.
+
+*** REPL-driven local development via CIDER
+1) Start tailwindcss in watch mode
+   #+begin_src
+npm run postcss:watch
+   #+end_src
+2) =cider-jack-in-clj= (select clojure-cli)
+3) =cider-jack-in-cljs= (select shadow-cljs)
+4) open either [[http://localhost:3000][localhost:3000]] or [[http://localhost:8020][localhost:8020]]
+
+*** REPL-driven local development via other nrepl client
+1) Start tailwindcss in watch mode
+   #+begin_src
+npm run postcss:watch
+   #+end_src
+2) Start shadow-cljs in watch mode
+   #+begin_src
+npx shadow-cljs watch app
+   #+end_src
+3) Now you should be able to connect to shadow-cljs nrepl on port 7002 (or check [[https://github.com/eugenebakisov/scramblies/blob/master/shadow-cljs.edn][shadow-cljs.edn]] in case I forgot to update port in README)
+4) Start clj nrepl
+   #+begin_src
+make repl
+   #+end_src
+5) Now you should be able to connect to clj nrepl on port specified in the command output (or in .nrepl-port file)
+6) Don't forget to open web app via either [[http://localhost:3000][localhost:3000]] or [[http://localhost:8020][localhost:8020]] in order for the cljs-repl to connect to a js runtime.

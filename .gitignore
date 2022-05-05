@@ -1,0 +1,21 @@
+.DS_Store
+.nrepl-port
+hs_err_pid*.log
+.cpcache/
+target
+log/
+
+# IntelliJ
+*.iml
+.idea/
+
+# clj-kondo
+.clj-kondo/.cache/
+
+*.~undo-tree~
+.lsp/
+.clj-kondo/.cache/
+node_modules/
+.shadow-cljs/
+
+.eastwood
