@@ -6,7 +6,6 @@
     "postcss:watch": "cross-env TAILWIND_MODE=watch postcss tailwind.css -o ./target/classes/tailwindcss/public/css/main.css --verbose -w",
     "postcss:release": "cross-env NODE_ENV=production postcss tailwind.css -o ./target/classes/tailwindcss/public/css/main.css --verbose",
     "dev": "run-p -l *:watch",
-    "test": "karma start --singe-run",
     "release": "run-s *:release"
   },
   "devDependencies": {

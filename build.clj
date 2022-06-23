@@ -24,18 +24,18 @@
                     "cp -r target/classes/tailwindcss/public target/classes/"))
 
 (def version (or (try
-                   (.substring (execute-or-throw "git describe") 0 5)
+                   (execute-or-throw "git describe --tags --always")
                    (catch Exception _ignored (fn [_])))
                  "0.0.1"))
 (def basis (b/create-basis {:project "deps.edn"}))
 
 (defn clean
   "Delete the build target directory"
-  [_]
+  []
   (println "Cleaning target...")
   (b/delete {:path "target"}))
 
-(defn prep [_]
+(defn prep []
   (println "Writing Pom...")
   (b/write-pom {:class-dir "target/classes"
                 :lib 'eugene.bakisov/scramblies
@@ -45,7 +45,7 @@
   (b/copy-dir {:src-dirs ["src/clj" "resources" "env/prod/clj"]
                :target-dir "target/classes"}))
 
-(defn uber [_]
+(defn uber []
   (println "Compiling Clojure...")
   (b/compile-clj {:basis basis
                   :src-dirs ["src/clj" "env/prod/clj"]
@@ -58,9 +58,9 @@
            :basis basis}))
 
 (defn all [_]
-  (clean nil)
-  (prep nil)
-  (uber nil))
+  (clean)
+  (prep)
+  (uber))
 
 (defn- build-docker-image
   [tag]
@@ -75,5 +75,4 @@
   (build-docker-image version))
 
 (defn docker-push [_]
-  (build-docker-image version)
   (push-to-docker-hub version))
