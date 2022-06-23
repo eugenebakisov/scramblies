@@ -46,7 +46,7 @@ jobs:
     - name: Run tests
       run: make test
 
-    - name: Bump version and push tag
+    - name: Bump version
       id: tag_version
       uses: mathieudutour/github-tag-action@v6.0
       with:
@@ -54,10 +54,17 @@ jobs:
         tag_prefix: ''
         dry_run: true
 
-    - name: set environment variables
+    - name: Set version
       uses: allenevans/set-env@v2.0.0
       with:
-        COMMIT_REF_NAME: ${{ steps.tag_version.outputs.new_tag }}
+        : ${{ steps.tag_version.outputs.new_tag }}
 
-    - name: Build docker image
-      run: make build
+    - name: Build and deploy docker image
+      run: make build deploy
+
+    - name: Push git tag
+      id: tag_version
+      uses: mathieudutour/github-tag-action@v6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        tag_prefix: ''
