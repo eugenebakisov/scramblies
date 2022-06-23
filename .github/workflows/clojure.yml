@@ -56,8 +56,8 @@ jobs:
 
     - name: set environment variables
       uses: allenevans/set-env@v2.0.0
-        with:
-          COMMIT_REF_NAME: ${{ steps.tag_version.outputs.new_tag }}
+      with:
+        COMMIT_REF_NAME: ${{ steps.tag_version.outputs.new_tag }}
 
     - name: Build docker image
       run: make build
