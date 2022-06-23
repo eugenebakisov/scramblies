@@ -11,13 +11,13 @@ clean:
 	rm -rf target
 
 run:
-	clj -M:dev
+	clojure -M:dev
 
 repl:
-	clj -M:dev:nrepl
+	clojure -M:dev:nrepl
 
 clj-test:
-	clj -M:test
+	clojure -M:test
 
 cljs-test:
 	npx shadow-cljs compile test && ./node_modules/karma/bin/karma start --single-run
@@ -25,10 +25,10 @@ cljs-test:
 test: clj-test cljs-test
 
 lint:
-	clj -M:dev:eastwood
+	clojure -M:dev:eastwood
 
 uberjar:
-	clj -T:build all
+	clojure -T:build all
 
 build: uberjar docker-build docker-tag
 
