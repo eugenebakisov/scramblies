@@ -16,8 +16,8 @@
 ## Intro
 
 Clojure web server bundled with ClojureScript web app.
-Web server contains a single API endpoint which takes two strings and returns true if one string can be arranged out of letters of the second one.
-Web application contains a single form for inputting mentioned strings.
+The server contains a single API endpoint which takes two strings and returns true if one string can be arranged out of letters of the second one.
+The web app contains a single form for inputting mentioned strings.
 At the moment of writing it&rsquo;s been deployed to [scramblies.repl-driven.dev](https://scramblies.repl-driven.dev)
 
 
@@ -66,7 +66,7 @@ Then start Clojure web server
     make repl
 
 If everything was successful you should be able to open [localhost:3000](http://localhost:3000) and see web app with some css. You may also check out Swagger UI at [localhost:3000/api](http://localhost:300/api).
-Shadow-cljs is configured to start web server in watch mode on [localhost:8020](http://localhost:8020) - which can be useful for working with styles in cljs views as they will be compiled on the fly by tailwindcss and delivered by shadow-cljs dev server automatically instead of requiring you to manually reload index.html served by Clojure web server.
+Shadow-cljs is configured to start web server in watch mode at [localhost:8020](http://localhost:8020) - which can be useful for working with css in cljs views as they will be compiled on the fly by tailwindcss and delivered by shadow-cljs dev server automatically.
 
 
 <a id="LocalCider"></a>
@@ -91,10 +91,10 @@ Shadow-cljs is configured to start web server in watch mode on [localhost:8020](
 2.  Start shadow-cljs in watch mode
     
         npx shadow-cljs watch app
-3.  Now you should be able to connect to shadow-cljs nrepl on port 7002 (or check [shadow-cljs.edn](https://github.com/eugenebakisov/scramblies/blob/master/shadow-cljs.edn) in case I forgot to update port in README)
+3.  Now you should be able to connect to the shadow-cljs nrepl on port 7002 (or check [shadow-cljs.edn](https://github.com/eugenebakisov/scramblies/blob/master/shadow-cljs.edn) in case I forgot to update the port in README)
 4.  Start clj nrepl
     
         make repl
-5.  Now you should be able to connect to clj nrepl on port specified in the command output (or in .nrepl-port file)
-6.  Don&rsquo;t forget to open web app via either [localhost:3000](http://localhost:3000) or [localhost:8020](http://localhost:8020) in order for the cljs-repl to connect to a js runtime.
+5.  Now you should be able to connect to the clj nrepl on the port in the command output (or in .nrepl-port file)
+6.  Don&rsquo;t forget to open web app by visiting either [localhost:3000](http://localhost:3000) or [localhost:8020](http://localhost:8020) in order for the cljs-repl to connect to a js runtime.
 
