@@ -57,7 +57,7 @@ jobs:
     - name: Set version
       uses: allenevans/set-env@v2.0.0
       with:
-        : ${{ steps.tag_version.outputs.new_tag }}
+        COMMIT_REF_NAME: ${{ steps.tag_version.outputs.new_tag }}
 
     - name: Build and deploy docker image
       run: make build deploy
