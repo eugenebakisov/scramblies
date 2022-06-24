@@ -47,7 +47,7 @@ jobs:
       run: make test
 
     - name: Bump version
-      id: tag_version
+      id: tag_bump
       uses: mathieudutour/github-tag-action@v6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -57,13 +57,13 @@ jobs:
     - name: Set version
       uses: allenevans/set-env@v2.0.0
       with:
-        COMMIT_REF_NAME: ${{ steps.tag_version.outputs.new_tag }}
+        COMMIT_REF_NAME: ${{ steps.tag_bump.outputs.new_tag }}
 
     - name: Build and deploy docker image
       run: make build deploy
 
     - name: Push git tag
-      id: tag_version
+      id: push_tag
       uses: mathieudutour/github-tag-action@v6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
