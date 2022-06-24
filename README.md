@@ -1,22 +1,22 @@
 
 # Table of Contents
 
-1.  [Scramblies](#org3cdc645)
-    1.  [Intro](#org6bf1f98)
-    2.  [Stack](#orgfb7b155)
-    3.  [Local Development](#org66ee343)
-        1.  [Docker](#orgdcc17c5)
-        2.  [Building local version](#orgce89938)
-        3.  [REPL-driven local development via CIDER](#orga2479e2)
-        4.  [REPL-driven local development via other nrepl client](#orga47f2c3)
+1.  [Scramblies](#orgfff868a)
+    1.  [Intro](#org775fae8)
+    2.  [Stack](#org403a5d3)
+    3.  [Local Development](#orgb7fa0ef)
+        1.  [Docker](#org619b6b2)
+        2.  [Building local version](#orgaf8d6e4)
+        3.  [REPL-driven local development via CIDER](#org6584822)
+        4.  [REPL-driven local development via other nrepl client](#orge87685d)
 
 
-<a id="org3cdc645"></a>
+<a id="orgfff868a"></a>
 
 # Scramblies
 
 
-<a id="org6bf1f98"></a>
+<a id="org775fae8"></a>
 
 ## Intro
 
@@ -26,7 +26,7 @@ Web application contains a single form for inputing mentioned strings.
 At the moment of writing it&rsquo;s been deployed to [scramblies.repl-driven.dev](https://scramblies.repl-driven.dev)
 
 
-<a id="orgfb7b155"></a>
+<a id="org403a5d3"></a>
 
 ## Stack
 
@@ -41,21 +41,21 @@ At the moment of writing it&rsquo;s been deployed to [scramblies.repl-driven.dev
 -   [Tailwindcss](https://github.com/tailwindlabs/tailwindcss) for efficient styling (tried to make [macrocss](https://github.com/HealthSamurai/macrocss) work but there is an issue with @media queries)
 
 
-<a id="org66ee343"></a>
+<a id="orgb7fa0ef"></a>
 
 ## Local Development
 
 
-<a id="orgdcc17c5"></a>
+<a id="org619b6b2"></a>
 
 ### Docker
 
 In order to quickly lauch project locally one may use docker
 
-    docker run -p 3000:3000 eugenebakisov/scramblies
+    docker run -P eugenebakisov/scramblies
 
 
-<a id="orgce89938"></a>
+<a id="orgaf8d6e4"></a>
 
 ### Building local version
 
@@ -74,7 +74,7 @@ If everything went successful you should be able to open [localhost:3000](http:/
 Shadow-cljs configured to start web server in watch mode on [localhost:8020](http://localhost:8020) - which can be useful for working with styles in cljs views as they will be compiled on the fly by tailwindcss and delived by shadow-cljs dev server automaticaly instead of requiring you to manually reload index.html served by clojure web server.
 
 
-<a id="orga2479e2"></a>
+<a id="org6584822"></a>
 
 ### REPL-driven local development via CIDER
 
@@ -86,7 +86,7 @@ Shadow-cljs configured to start web server in watch mode on [localhost:8020](htt
 4.  open either [localhost:3000](http://localhost:3000) or [localhost:8020](http://localhost:8020)
 
 
-<a id="orga47f2c3"></a>
+<a id="orge87685d"></a>
 
 ### REPL-driven local development via other nrepl client
 

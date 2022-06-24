@@ -19,7 +19,7 @@ At the moment of writing it's been deployed to [[https://scramblies.repl-driven.
 *** Docker
 In order to quickly lauch project locally one may use docker
 #+begin_src
-docker run -p 3000:3000 eugenebakisov/scramblies
+docker run -P eugenebakisov/scramblies
 #+end_src
 *** Building local version
 Local development requires Node.js/npm and JDK/Clojure CLI to be installed.
