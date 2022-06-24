@@ -57,11 +57,24 @@ jobs:
     - name: Set version
       run: echo "COMMIT_REF_NAME=${{ steps.tag_bump.outputs.new_tag }}" >> $GITHUB_ENV
 
+    - name: Build uberjar
+      run: make uberjar
+
+    - name: Cache uberjar
+      id: cache-uberjar
+      uses: actions/cache@v3
+      with:
+        path: ./target/scramblies-standalone.jar
+        key: ${{ runner.os }}-uberjar-${{ hashFiles('./target/scramblies-standalone.jar') }}
+        restore-keys: ${{ runner.os }}-uberjar
+
     - name: Build and deploy docker image
+      if: steps.cache-uberjar.outputs.cache-hit != 'true'
       run: make build deploy
 
     - name: Push git tag
       id: push_tag
+      if: steps.cache-uberjar.outputs.cache-hit != 'true'
       uses: mathieudutour/github-tag-action@v6.0
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
