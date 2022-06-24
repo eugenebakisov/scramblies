@@ -55,9 +55,7 @@ jobs:
         dry_run: true
 
     - name: Set version
-      uses: allenevans/set-env@v2.0.0
-      with:
-        COMMIT_REF_NAME: ${{ steps.tag_bump.outputs.new_tag }}
+      run: echo "COMMIT_REF_NAME=${{ steps.tag_bump.outputs.new_tag }}" >> $GITHUB_ENV
 
     - name: Build and deploy docker image
       run: make build deploy
