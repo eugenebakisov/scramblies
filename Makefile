@@ -30,7 +30,7 @@ lint:
 uberjar:
 	clojure -T:build all
 
-build: uberjar docker-build docker-tag
+build: docker-build docker-tag
 
 deploy: docker-login docker-push
 
