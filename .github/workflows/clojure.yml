@@ -60,6 +60,12 @@ jobs:
     - name: Build and push docker image
       run: make uberjar build deploy
 
+    - name: Set latest version
+      run: echo "COMMIT_REF_NAME=latest" >> $GITHUB_ENV
+
+    - name: Deploy latest docker image
+      run: make docker-tag deploy
+
     - name: Push git tag
       id: push_tag
       uses: mathieudutour/github-tag-action@v6.0
