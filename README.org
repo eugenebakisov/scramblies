@@ -9,7 +9,7 @@ At the moment of writing it's been deployed to [[https://scramblies.repl-driven.
 - Managing deps via [[https://github.com/clojure/tools.deps.alpha][tools.deps]]
 - ClojureSript toolchain: [[https://github.com/thheller/shadow-cljs][shadow-cljs]]
 - [[https://undertow.io/][Undertow]] web server
-- [[https://github.com/weavejester/integrant][Integrant]]+[[https://github.com/juxt/aero][Aero]] for system configuration/management
+- [[https://github.com/weavejester/integrant][Integrant ]]+ [[https://github.com/juxt/aero][Aero]] for system configuration/management
 - [[https://github.com/metosin/reitit][Reitit]] for routes and spec
 - [[https://github.com/reagent-project/reagent][Reagent]] for creating React components (would like to try [[https://github.com/lilactown/helix][Helix]] or [[https://github.com/pitch-io/uix][UIX]])
 - [[https://github.com/day8/re-frame][Re-frame]] for managing state and controlling effects in web app

@@ -1,22 +1,22 @@
 
 # Table of Contents
 
-1.  [Scramblies](#org69d3ed4)
-    1.  [Intro](#orgf22df52)
-    2.  [Stack](#org0c1fa5f)
-    3.  [Local Development](#orge50e221)
-        1.  [Docker](#orgc08ef75)
-        2.  [Building local version](#org03a8a03)
-        3.  [REPL-driven local development via CIDER](#orgf2a3a1d)
-        4.  [REPL-driven local development via other nrepl client](#org3ae05dd)
+1.  [Scramblies](#org3cdc645)
+    1.  [Intro](#org6bf1f98)
+    2.  [Stack](#orgfb7b155)
+    3.  [Local Development](#org66ee343)
+        1.  [Docker](#orgdcc17c5)
+        2.  [Building local version](#orgce89938)
+        3.  [REPL-driven local development via CIDER](#orga2479e2)
+        4.  [REPL-driven local development via other nrepl client](#orga47f2c3)
 
 
-<a id="org69d3ed4"></a>
+<a id="org3cdc645"></a>
 
 # Scramblies
 
 
-<a id="orgf22df52"></a>
+<a id="org6bf1f98"></a>
 
 ## Intro
 
@@ -26,7 +26,7 @@ Web application contains a single form for inputing mentioned strings.
 At the moment of writing it&rsquo;s been deployed to [scramblies.repl-driven.dev](https://scramblies.repl-driven.dev)
 
 
-<a id="org0c1fa5f"></a>
+<a id="orgfb7b155"></a>
 
 ## Stack
 
@@ -34,19 +34,19 @@ At the moment of writing it&rsquo;s been deployed to [scramblies.repl-driven.dev
 -   Managing deps via [tools.deps](https://github.com/clojure/tools.deps.alpha)
 -   ClojureSript toolchain: [shadow-cljs](https://github.com/thheller/shadow-cljs)
 -   [Undertow](https://undertow.io/) web server
--   [Integrant](https://github.com/weavejester/integrant)+[Aero](https://github.com/juxt/aero) for system configuration/management
+-   [Integrant ](https://github.com/weavejester/integrant)+ [Aero](https://github.com/juxt/aero) for system configuration/management
 -   [Reitit](https://github.com/metosin/reitit) for routes and spec
 -   [Reagent](https://github.com/reagent-project/reagent) for creating React components (would like to try [Helix](https://github.com/lilactown/helix) or [UIX](https://github.com/pitch-io/uix))
 -   [Re-frame](https://github.com/day8/re-frame) for managing state and controlling effects in web app
 -   [Tailwindcss](https://github.com/tailwindlabs/tailwindcss) for efficient styling (tried to make [macrocss](https://github.com/HealthSamurai/macrocss) work but there is an issue with @media queries)
 
 
-<a id="orge50e221"></a>
+<a id="org66ee343"></a>
 
 ## Local Development
 
 
-<a id="orgc08ef75"></a>
+<a id="orgdcc17c5"></a>
 
 ### Docker
 
@@ -55,7 +55,7 @@ In order to quickly lauch project locally one may use docker
     docker run -p 3000:3000 eugenebakisov/scramblies
 
 
-<a id="org03a8a03"></a>
+<a id="orgce89938"></a>
 
 ### Building local version
 
@@ -74,7 +74,7 @@ If everything went successful you should be able to open [localhost:3000](http:/
 Shadow-cljs configured to start web server in watch mode on [localhost:8020](http://localhost:8020) - which can be useful for working with styles in cljs views as they will be compiled on the fly by tailwindcss and delived by shadow-cljs dev server automaticaly instead of requiring you to manually reload index.html served by clojure web server.
 
 
-<a id="orgf2a3a1d"></a>
+<a id="orga2479e2"></a>
 
 ### REPL-driven local development via CIDER
 
@@ -86,7 +86,7 @@ Shadow-cljs configured to start web server in watch mode on [localhost:8020](htt
 4.  open either [localhost:3000](http://localhost:3000) or [localhost:8020](http://localhost:8020)
 
 
-<a id="org3ae05dd"></a>
+<a id="orga47f2c3"></a>
 
 ### REPL-driven local development via other nrepl client
 
