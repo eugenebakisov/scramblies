@@ -1,32 +1,27 @@
 
-# Table of Contents
-
-1.  [Scramblies](#orgfff868a)
-    1.  [Intro](#org775fae8)
-    2.  [Stack](#org403a5d3)
-    3.  [Local Development](#orgb7fa0ef)
-        1.  [Docker](#org619b6b2)
-        2.  [Building local version](#orgaf8d6e4)
-        3.  [REPL-driven local development via CIDER](#org6584822)
-        4.  [REPL-driven local development via other nrepl client](#orge87685d)
-
-
-<a id="orgfff868a"></a>
 
 # Scramblies
 
+1.  [Intro](#Intro)
+2.  [Stack](#Stack)
+3.  [Docker](#Docker)
+4.  [Local Development](#Local)
+    1.  [Building local version](#LocalBuild)
+    2.  [REPL-driven local development via CIDER](#LocalCider)
+    3.  [REPL-driven local development via other nrepl client](#LocalRepl)
 
-<a id="org775fae8"></a>
+
+<a id="Intro"></a>
 
 ## Intro
 
-Clojure web server bundled with ClojureScript web applicaiton.
-Web server contains a single API endpoint which takes two strings and returns if one string can be arranged out of letters of the second one.
-Web application contains a single form for inputing mentioned strings.
+Clojure web server bundled with ClojureScript web app.
+Web server contains a single API endpoint which takes two strings and returns true if one string can be arranged out of letters of the second one.
+Web application contains a single form for inputting mentioned strings.
 At the moment of writing it&rsquo;s been deployed to [scramblies.repl-driven.dev](https://scramblies.repl-driven.dev)
 
 
-<a id="org403a5d3"></a>
+<a id="Stack"></a>
 
 ## Stack
 
@@ -41,27 +36,27 @@ At the moment of writing it&rsquo;s been deployed to [scramblies.repl-driven.dev
 -   [Tailwindcss](https://github.com/tailwindlabs/tailwindcss) for efficient styling (tried to make [macrocss](https://github.com/HealthSamurai/macrocss) work but there is an issue with @media queries)
 
 
-<a id="orgb7fa0ef"></a>
+<a id="Docker"></a>
 
-## Local Development
+## Docker
 
-
-<a id="org619b6b2"></a>
-
-### Docker
-
-In order to quickly lauch project locally one may use docker
+To quickly launch project locally run
 
     docker run -P eugenebakisov/scramblies
 
 
-<a id="orgaf8d6e4"></a>
+<a id="Local"></a>
+
+## Local Development
+
+
+<a id="LocalBuild"></a>
 
 ### Building local version
 
 Local development requires Node.js/npm and JDK/Clojure CLI to be installed.
 
-In order to build local version you should install js deps and starting tailwindcss and shadow-cljs in watch mode
+To build a local version you should install js packages and start tailwindcss and shadow-cljs in watch mode
 
     npm install
     npm run dev
@@ -70,11 +65,11 @@ Then start Clojure web server
 
     make repl
 
-If everything went successful you should be able to open [localhost:3000](http://localhost:3000) and see web application with some css. You can also check out [localhost:3000/api](http://localhost:300/api) for Swagger UI.
-Shadow-cljs configured to start web server in watch mode on [localhost:8020](http://localhost:8020) - which can be useful for working with styles in cljs views as they will be compiled on the fly by tailwindcss and delived by shadow-cljs dev server automaticaly instead of requiring you to manually reload index.html served by clojure web server.
+If everything was successful you should be able to open [localhost:3000](http://localhost:3000) and see web app with some css. You may also check out Swagger UI at [localhost:3000/api](http://localhost:300/api).
+Shadow-cljs is configured to start web server in watch mode on [localhost:8020](http://localhost:8020) - which can be useful for working with styles in cljs views as they will be compiled on the fly by tailwindcss and delivered by shadow-cljs dev server automatically instead of requiring you to manually reload index.html served by Clojure web server.
 
 
-<a id="org6584822"></a>
+<a id="LocalCider"></a>
 
 ### REPL-driven local development via CIDER
 
@@ -86,7 +81,7 @@ Shadow-cljs configured to start web server in watch mode on [localhost:8020](htt
 4.  open either [localhost:3000](http://localhost:3000) or [localhost:8020](http://localhost:8020)
 
 
-<a id="orge87685d"></a>
+<a id="LocalRepl"></a>
 
 ### REPL-driven local development via other nrepl client
 
