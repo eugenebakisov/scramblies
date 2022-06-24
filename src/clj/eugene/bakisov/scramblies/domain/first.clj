@@ -6,7 +6,7 @@
 (set! *warn-on-reflection* true)
 
 (defn chars-distribution
-  "Awesome function to count character distribution from a given string s
+  "'Awesome' function to count character distribution from a given string s
   (This is silly because I for some reason forgot about `frequencies` at that point in time)"
   [s]
   (reduce (fn [acc char]
@@ -23,7 +23,7 @@
                                       (> freq char-distr)))]
     (->> other-distr
          (filter char-has-more-occurences?)
-         some?)))
+         empty?)))
 
 (defn scramble?
   "Returns true if a portion of 'source' characters can be rearranged to match 'target'"

@@ -17,6 +17,7 @@
           (are [s t]
               (not (scramble-fn s t))
             ""   "a"
+            "b"  "a"
             "a"  "aa"
             "ab" "abc"))
     sut1/scramble?

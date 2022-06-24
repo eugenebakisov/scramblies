@@ -1,5 +1,5 @@
 (ns eugene.bakisov.scramblies.domain.second
-  "Second implementaion.
+  "Second implementation.
   We can use transient map for the distribution counting"
   (:require
    [eugene.bakisov.scramblies.domain.common :as common]

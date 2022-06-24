@@ -1,8 +1,8 @@
 (ns eugene.bakisov.scramblies.domain.final
   "Final implementation.
   If we can be 100% sure we are not going to support other characters
-  except for mentioned in the task description, we can use vector-based disctributions instead of map-based
-  N'th element would replresent occurences of N'th character after `a`"
+  except for mentioned in the task description, we can use vector-based distributions instead of map-based
+  N'th element would represent occurrence of N'th character after `a`"
   (:require
    [eugene.bakisov.scramblies.domain.common :as common]))
 
@@ -22,10 +22,11 @@
 
 (defn distribution-includes?
   "Returns true if first distribution includes second one.
-  In other words: if every key in second distribution had less or equal occurences than in first distribution."
+  In other words: if every key in second distribution had less or equal occurrences than in first distribution."
   [distr other-distr]
   (->> (map < distr other-distr)
-       some?))
+       (filter true?)
+       empty?))
 
 (defn scramble?
   "Returns true if a portion of 'source' characters can be rearranged to match 'target'"
