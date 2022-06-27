@@ -4,11 +4,11 @@
 
 1.  [Intro](#Intro)
 2.  [Stack](#Stack)
-3.  [Docker](#Docker)
+3.  [Docker Image](#DockerImage)
 4.  [Local Development](#Local)
-    1.  [Building local version](#LocalBuild)
-    2.  [REPL-driven local development via CIDER](#LocalCider)
-    3.  [REPL-driven local development via other nrepl client](#LocalRepl)
+    1.  [Build](#LocalBuild)
+    2.  [CIDER](#LocalCider)
+    3.  [REPL](#LocalREPL)
 
 
 <a id="Intro"></a>
@@ -36,10 +36,11 @@ At the moment of writing it&rsquo;s been deployed to [scramblies.repl-driven.dev
 -   [Tailwindcss](https://github.com/tailwindlabs/tailwindcss) for efficient styling (tried to make [macrocss](https://github.com/HealthSamurai/macrocss) work but there is an issue with @media queries)
 
 
-<a id="Docker"></a>
+<a id="DockerImage"></a>
 
-## Docker
+## Docker Image
 
+Docker image is available on [Docker Hub](https://hub.docker.com/r/eugenebakisov/scramblies/).
 To quickly launch project locally run
 
     docker run -P eugenebakisov/scramblies
@@ -52,7 +53,7 @@ To quickly launch project locally run
 
 <a id="LocalBuild"></a>
 
-### Building local version
+### Build
 
 Local development requires Node.js/npm and JDK/Clojure CLI to be installed.
 
@@ -71,7 +72,7 @@ Shadow-cljs is configured to start web server in watch mode at [localhost:8020](
 
 <a id="LocalCider"></a>
 
-### REPL-driven local development via CIDER
+### CIDER
 
 1.  Start tailwindcss in watch mode
     
@@ -81,9 +82,9 @@ Shadow-cljs is configured to start web server in watch mode at [localhost:8020](
 4.  open either [localhost:3000](http://localhost:3000) or [localhost:8020](http://localhost:8020)
 
 
-<a id="LocalRepl"></a>
+<a id="LocalREPL"></a>
 
-### REPL-driven local development via other nrepl client
+### REPL
 
 1.  Start tailwindcss in watch mode
     
