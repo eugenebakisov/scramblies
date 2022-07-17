@@ -78,8 +78,11 @@ Shadow-cljs is configured to start web server in watch mode at [localhost:8020](
     
         npm run postcss:watch
 2.  `cider-jack-in-clj` (select clojure-cli)
-3.  `cider-jack-in-cljs` (select shadow-cljs)
-4.  open either [localhost:3000](http://localhost:3000) or [localhost:8020](http://localhost:8020)
+3.  Start system
+    
+        (go)
+4.  `cider-jack-in-cljs` (select shadow-cljs)
+5.  open either [localhost:3000](http://localhost:3000) or [localhost:8020](http://localhost:8020)
 
 
 <a id="LocalREPL"></a>
@@ -96,6 +99,12 @@ Shadow-cljs is configured to start web server in watch mode at [localhost:8020](
 4.  Start clj nrepl
     
         make repl
-5.  Now you should be able to connect to the clj nrepl on the port in the command output (or in .nrepl-port file)
-6.  Don&rsquo;t forget to open web app by visiting either [localhost:3000](http://localhost:3000) or [localhost:8020](http://localhost:8020) in order for the cljs-repl to connect to a js runtime.
+5.  Start system
+    
+        (go)
+6.  Restart system when needed
+    
+        (reset)
+7.  Now you should be able to connect to the clj nrepl on the port in the command output (or in .nrepl-port file)
+8.  Don&rsquo;t forget to open web app by visiting either [localhost:3000](http://localhost:3000) or [localhost:8020](http://localhost:8020) in order for the cljs-repl to connect to a js runtime.
 
